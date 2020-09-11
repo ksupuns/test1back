@@ -24,6 +24,7 @@ var ordb=require('oracledb');
 const {autoCommit}=require('oracledb');
 const {Console}=require('console');
 const OracleDB = require('oracledb');
+const { request } = require('http');
 
 var oraconnection = OracleDB.getConnection(db_config);
 
@@ -42,3 +43,18 @@ app.listen(PORT,()=>{
 app.get('/',(req,res)=>{
     res.send(`you are in default port`);
 });
+
+app.get('/add',(req,res)=>{
+    var id,name,nic,tp;
+
+    id=req.body.pid;
+    name=req.body.pname;
+    nic=req.body.pnic;
+    tp=req.body.ptp;
+
+
+    console.log(id);
+    console.log(name);
+    console.log(nic);
+    console.log(tp);
+})
